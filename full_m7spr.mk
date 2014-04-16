@@ -28,9 +28,23 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from m7spr device
 $(call inherit-product, device/htc/m7spr/device.mk)
 
+# Specify phone tech before including full_phone
+$(call inherit-product, vendor/eos/config/gsm.mk)
+$(call inherit-product, vendor/eos/config/common_full_phone.mk)
+
+# Copy Bootanimation
+PRODUCT_COPY_FILES += \
+    vendor/eos/prebuilt/common/bootanimation/1080.zip:system/media/bootanimation.zip
+
 # Set those variables here to overwrite the inherited values.
 PRODUCT_NAME := full_m7spr
 PRODUCT_DEVICE := m7spr
 PRODUCT_BRAND := htc
 PRODUCT_MANUFACTURER := HTC
 PRODUCT_MODEL := One
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    PRODUCT_NAME=sprint_wwe \
+    BUILD_ID=KOT49H \
+    BUILD_FINGERPRINT="htc/sprint_wwe/m7wls:4.4.2/KOT49H/303687.4:user/release-keys" \
+    PRIVATE_BUILD_DESC="4.06.651.4 CL303687 release-keys"
