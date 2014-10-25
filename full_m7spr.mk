@@ -28,8 +28,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 # Inherit from m7spr device
 $(call inherit-product, device/htc/m7spr/device.mk)
 
-# Specify phone tech before including full_phone
-$(call inherit-product, vendor/eos/config/gsm.mk)
+# Inherit from Eos vendor
 $(call inherit-product, vendor/eos/config/common_full_phone.mk)
 
 # Copy Bootanimation
