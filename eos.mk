@@ -4,6 +4,10 @@ $(call inherit-product, vendor/eos/config/nfc_enhanced.mk)
 
 $(call inherit-product, device/htc/m7spr/full_m7spr.mk)
 
+# Copy Bootanimation
+PRODUCT_COPY_FILES += \
+vendor/eos/prebuilt/common/bootanimation/1080.zip:system/media/bootanimation.zip
+
 PRODUCT_BUILD_PROP_OVERRIDES += \
     PRODUCT_NAME=sprint_wwe \
     BUILD_ID=LRX22F \
